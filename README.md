@@ -44,6 +44,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm run test` | Vitest unit tests |
 | `npm run test:e2e` | Playwright end-to-end tests |
 | `npm run verify` | Full verification pipeline |
+| `npm run build:all` | Verify + migrations + e2e (full local CI) |
 | `npm run verify:migrations` | Migration file conventions |
 
 First-time e2e setup: `npx playwright install chromium`

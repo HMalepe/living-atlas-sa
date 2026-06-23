@@ -37,7 +37,7 @@ export default function HomePage() {
               href="/ground/roads"
               className="mt-4 inline-block text-sm font-medium text-accent-ground hover:underline"
             >
-              Johannesburg roads (MVP) →
+              Explore Johannesburg roads →
             </Link>
           </article>
           <article className="rounded-xl border border-border bg-surface p-6">

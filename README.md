@@ -6,7 +6,7 @@ Living Atlas SA is an interactive learning platform that transforms South Africa
 
 ## Status
 
-**Milestone 1 complete** — auth, core database schema, RLS, admin portal.
+**Milestone 2 complete** — MapLibre ground map, ten Johannesburg roads, search.
 
 ## Supabase setup
 

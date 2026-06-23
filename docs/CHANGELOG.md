@@ -6,6 +6,16 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added — Milestone 2
+
+- Road domain migration (roads, segments, geometries, names, search functions)
+- MapLibre GL map with OpenFreeMap tiles and Johannesburg bounding box
+- Ten MVP roads with placeholder geometries (development_sample tier)
+- `/ground/roads` interactive explorer with preview card
+- `/ground/roads/[slug]` detail page scaffold
+- `/search` and `/api/search` with former-name match explanations
+- `/api/ground/roads` bbox-filtered GeoJSON endpoint
+
 ### Added — Milestone 1
 
 - Shared core database migration (entities, claims, sources, names, places, timeline, community submissions)

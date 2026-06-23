@@ -8,7 +8,7 @@ import { join } from "node:path";
 
 const MIGRATIONS_DIR = join(process.cwd(), "supabase", "migrations");
 
-const REQUIRED_TABLES = ["entities", "claims", "profiles", "roles"];
+const REQUIRED_TABLES = ["entities", "claims", "profiles", "roles", "roads"];
 
 async function main() {
   let files;

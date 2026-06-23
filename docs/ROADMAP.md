@@ -19,14 +19,14 @@
 - [x] Seed scripts (roles, entity types, plan placeholders)
 - [x] Admin shell (`/admin`) with auth UI
 
-## Milestone 2: Ground map
+## Milestone 2: Ground map ✅
 
-- [ ] MapLibre integration
-- [ ] Johannesburg bounding box
-- [ ] Road geometries (server-filtered)
-- [ ] Road selection + preview card
-- [ ] Road detail page scaffold
-- [ ] Search (roads, former names)
+- [x] MapLibre integration
+- [x] Johannesburg bounding box
+- [x] Road geometries (server-filtered API + static fallback)
+- [x] Road selection + preview card
+- [x] Road detail page scaffold
+- [x] Search (roads, former names)
 
 ## Milestone 3: Road depth
 

@@ -1,10 +1,26 @@
 import { z } from "zod";
 
+function emptyToUndefined(value: unknown): unknown {
+  if (value === "" || value === undefined) {
+    return undefined;
+  }
+  return value;
+}
+
 const envSchema = z.object({
   NEXT_PUBLIC_APP_URL: z.string().url().default("http://localhost:3000"),
-  NEXT_PUBLIC_SUPABASE_URL: z.string().url().optional(),
-  NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1).optional(),
-  SUPABASE_SERVICE_ROLE_KEY: z.string().min(1).optional(),
+  NEXT_PUBLIC_SUPABASE_URL: z.preprocess(
+    emptyToUndefined,
+    z.string().url().optional(),
+  ),
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: z.preprocess(
+    emptyToUndefined,
+    z.string().min(1).optional(),
+  ),
+  SUPABASE_SERVICE_ROLE_KEY: z.preprocess(
+    emptyToUndefined,
+    z.string().min(1).optional(),
+  ),
 });
 
 export type AppEnv = z.infer<typeof envSchema>;
@@ -30,7 +46,7 @@ function parseEnv(): AppEnv {
 export const env = parseEnv();
 
 export function isSupabaseConfigured(): boolean {
-  return Boolean(
-    env.NEXT_PUBLIC_SUPABASE_URL && env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-  );
+  const url = env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  return Boolean(url && key && url.startsWith("http"));
 }

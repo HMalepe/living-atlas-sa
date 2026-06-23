@@ -1,6 +1,6 @@
 # Implementation Plan — Living Atlas SA
 
-## Current status: Milestone 1 complete
+## Current status: Milestone 2 complete
 
 This document is the master engineering plan. All agents must read relevant `/docs` files before editing code.
 
@@ -12,8 +12,7 @@ This document is the master engineering plan. All agents must read relevant `/do
 |-----------|-------|-----------------|
 | M0 | Repository, docs, tooling | ✅ Complete |
 | M1 | Auth, core DB, RLS, admin shell | ✅ Complete |
-| M2 | Ground map (MapLibre, roads) | 1–2 weeks |
-| M2 | Ground map (MapLibre, roads) | 1–2 weeks |
+| M2 | Ground map (MapLibre, roads) | ✅ Complete |
 | M3 | Road depth (claims, compare) | 2 weeks |
 | M4 | Sky foundation | 2 weeks |
 | M5 | Constellation learning | 1–2 weeks |
@@ -189,4 +188,4 @@ After each milestone:
 
 **Do not begin Milestone 2 until M1 checks are coherent.**
 
-M1 is coherent. **Proceed to Milestone 2.**
+M1 is coherent. **Proceed to Milestone 3.**

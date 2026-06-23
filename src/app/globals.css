@@ -1,26 +1,114 @@
 @import "tailwindcss";
 
+/* ─── Living Atlas SA design tokens ─── */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Ground palette */
+  --ground-stone: #c4b5a0;
+  --ground-asphalt: #2a2a28;
+  --ground-mineral: #6b6b66;
+  --ground-sand: #d4c4a8;
+  --ground-rust: #a65d3f;
+  --ground-vegetation: #2d4a3e;
+  --ground-survey-line: #8a8578;
+
+  /* Sky palette */
+  --sky-midnight: #0b0f1a;
+  --sky-atmosphere: #121a2e;
+  --sky-lunar: #d8dce8;
+  --sky-starlight: #f5f0e6;
+  --sky-violet: #4a3f6b;
+  --sky-constellation: #6b8cce;
+
+  /* Semantic */
+  --background: var(--ground-sand);
+  --foreground: var(--ground-asphalt);
+  --surface: #f7f3ec;
+  --surface-elevated: #ffffff;
+  --muted: var(--ground-mineral);
+  --accent-ground: var(--ground-rust);
+  --accent-sky: var(--sky-constellation);
+  --border: #d9d0c4;
+  --ring: var(--ground-rust);
+
+  /* Confidence badges */
+  --confidence-verified: #2d6a4f;
+  --confidence-supported: #40916c;
+  --confidence-reported: #74c69d;
+  --confidence-community: #b08968;
+  --confidence-disputed: #c1121f;
+  --confidence-unknown: #6c757d;
+
+  /* Motion */
+  --motion-duration-fast: 150ms;
+  --motion-duration-normal: 300ms;
+  --motion-duration-slow: 600ms;
+  --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="sky"] {
+  --background: var(--sky-midnight);
+  --foreground: var(--sky-starlight);
+  --surface: var(--sky-atmosphere);
+  --surface-elevated: #1a2238;
+  --muted: #9aa3b8;
+  --border: #2a3550;
+  --ring: var(--sky-constellation);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="ground"]) {
+    --background: var(--ground-asphalt);
+    --foreground: var(--ground-sand);
+    --surface: #1e1e1c;
+    --surface-elevated: #2a2a28;
+    --muted: #9a958a;
+    --border: #3d3d3a;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-duration-fast: 0ms;
+    --motion-duration-normal: 0ms;
+    --motion-duration-slow: 0ms;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-muted: var(--muted);
+  --color-accent-ground: var(--accent-ground);
+  --color-accent-sky: var(--accent-sky);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

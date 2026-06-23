@@ -1,65 +1,76 @@
-import Image from "next/image";
+import Link from "next/link";
+import { HorizonHero } from "@/components/home/horizon-hero";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="flex flex-1 flex-col">
+      <header className="border-b border-border px-6 py-4">
+        <nav className="mx-auto flex max-w-5xl items-center justify-between">
+          <Link href="/" className="font-semibold tracking-tight">
+            Living Atlas SA
+          </Link>
+          <div className="flex gap-4 text-sm">
+            <Link href="/explore" className="hover:underline">
+              Explore
+            </Link>
+            <Link href="/about" className="hover:underline">
+              About
+            </Link>
+          </div>
+        </nav>
+      </header>
+
+      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-12 px-6 py-10">
+        <HorizonHero />
+
+        <section className="grid gap-6 sm:grid-cols-2">
+          <article className="rounded-xl border border-border bg-surface p-6">
+            <h2 className="text-lg font-semibold">Point → Understand</h2>
+            <p className="mt-2 text-muted">
+              A playable map of South African roads, intersections, and the
+              stories behind them — with sources you can trust.
+            </p>
+            <Link
+              href="/ground/roads"
+              className="mt-4 inline-block text-sm font-medium text-accent-ground hover:underline"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              Johannesburg roads (MVP) →
+            </Link>
+          </article>
+          <article className="rounded-xl border border-border bg-surface p-6">
+            <h2 className="text-lg font-semibold">Look up → Learn</h2>
+            <p className="mt-2 text-muted">
+              The Southern Hemisphere sky from your location — planets, Moon,
+              constellations, and cultural traditions.
+            </p>
+            <Link
+              href="/sky/live"
+              className="mt-4 inline-block text-sm font-medium text-accent-sky hover:underline"
             >
-              Learning
-            </a>{" "}
-            center.
+              Tonight&apos;s sky →
+            </Link>
+          </article>
+        </section>
+
+        <section className="rounded-xl border border-border bg-surface-elevated p-6">
+          <h2 className="text-lg font-semibold">Built on evidence</h2>
+          <p className="mt-2 text-muted">
+            Every important statement is a claim with a source and confidence
+            level. Community memory is shown as memory — never as undisputed
+            fact.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/methodology"
+            className="mt-4 inline-block text-sm font-medium hover:underline"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            Our methodology →
+          </Link>
+        </section>
       </main>
+
+      <footer className="border-t border-border px-6 py-6 text-center text-sm text-muted">
+        <p>Milestone 0 — foundation in progress</p>
+      </footer>
     </div>
   );
 }

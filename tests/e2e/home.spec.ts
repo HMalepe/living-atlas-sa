@@ -8,11 +8,15 @@ test("homepage communicates core promise", async ({ page }) => {
   ).toBeVisible();
 
   await expect(
-    page.getByRole("link", { name: /explore the ground/i }),
+    page.getByLabel("Living Atlas horizon").getByRole("link", {
+      name: /explore the ground/i,
+    }),
   ).toBeVisible();
 
   await expect(
-    page.getByRole("link", { name: /explore the sky/i }),
+    page.getByLabel("Living Atlas horizon").getByRole("link", {
+      name: /explore the sky/i,
+    }),
   ).toBeVisible();
 });
 

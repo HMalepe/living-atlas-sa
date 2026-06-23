@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
+import { SeedTierBadge } from "@/components/content/seed-tier-badge";
 import { Input } from "@/components/ui/input";
 import type { SearchResult } from "@/data/roads/johannesburg-mvp";
-import { seedTierLabel } from "@/data/roads/johannesburg-mvp";
 
 export function SearchPanel() {
   const [query, setQuery] = useState("");
@@ -84,9 +84,9 @@ export function SearchPanel() {
               <p className="mt-2 text-sm text-accent-ground">
                 {result.matchReason}
               </p>
-              <p className="mt-1 text-xs text-muted">
-                {seedTierLabel(result.seedTier)}
-              </p>
+              <div className="mt-2">
+                <SeedTierBadge tier={result.seedTier} />
+              </div>
             </Link>
           </li>
         ))}

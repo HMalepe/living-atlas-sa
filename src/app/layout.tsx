@@ -12,13 +12,24 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Living Atlas SA",
     template: "%s | Living Atlas SA",
   },
   description:
     "Explore the roads beneath you, the sky above you, and the history connecting them.",
+  openGraph: {
+    title: "Living Atlas SA",
+    description:
+      "A playable map of South African roads, skies, and the stories connecting them.",
+    locale: "en_ZA",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -29,6 +40,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-ZA"
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">

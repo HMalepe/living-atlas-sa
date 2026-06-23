@@ -6,6 +6,14 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added — Polish pass
+
+- Shared site header, footer, and shell with skip link
+- Custom 404, contribute placeholder, sky/live preview page
+- Seed tier badges, explore hub redesign, homepage featured roads
+- Migrated `middleware.ts` → `proxy.ts` (Next.js 16)
+- OpenGraph metadata, smooth scroll, consistent navigation
+
 ### Added — Milestone 2
 
 - Road domain migration (roads, segments, geometries, names, search functions)

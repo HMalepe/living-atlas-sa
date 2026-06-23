@@ -1,58 +1,81 @@
 import Link from "next/link";
+import { MapPin, Moon, Search } from "lucide-react";
+import { SiteShell } from "@/components/layout/site-shell";
 import { HorizonHero } from "@/components/home/horizon-hero";
+import { JOHANNESBURG_MVP_ROADS } from "@/data/roads/johannesburg-mvp";
+import { Button } from "@/components/ui/button";
+
+const featuredSlugs = ["m1", "winnie-mandela-drive", "main-reef-road"] as const;
 
 export default function HomePage() {
-  return (
-    <div className="flex flex-1 flex-col">
-      <header className="border-b border-border px-6 py-4">
-        <nav className="mx-auto flex max-w-5xl items-center justify-between">
-          <Link href="/" className="font-semibold tracking-tight">
-            Living Atlas SA
-          </Link>
-          <div className="flex gap-4 text-sm">
-            <Link href="/explore" className="hover:underline">
-              Explore
-            </Link>
-            <Link href="/about" className="hover:underline">
-              About
-            </Link>
-            <Link href="/admin" className="hover:underline">
-              Admin
-            </Link>
-          </div>
-        </nav>
-      </header>
+  const featured = JOHANNESBURG_MVP_ROADS.filter((road) =>
+    featuredSlugs.includes(road.slug as (typeof featuredSlugs)[number]),
+  );
 
-      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-12 px-6 py-10">
+  return (
+    <SiteShell mainClassName="mx-auto w-full max-w-5xl px-6 py-10">
+      <div className="flex flex-col gap-12">
         <HorizonHero />
 
         <section className="grid gap-6 sm:grid-cols-2">
-          <article className="rounded-xl border border-border bg-surface p-6">
-            <h2 className="text-lg font-semibold">Point → Understand</h2>
+          <article className="rounded-xl border border-border bg-surface p-6 transition-shadow hover:shadow-md">
+            <div className="flex items-center gap-2 text-accent-ground">
+              <MapPin className="h-4 w-4" aria-hidden />
+              <h2 className="text-lg font-semibold text-foreground">
+                Point → Understand
+              </h2>
+            </div>
             <p className="mt-2 text-muted">
-              A playable map of South African roads, intersections, and the
+              A playable map of Johannesburg roads, intersections, and the
               stories behind them — with sources you can trust.
             </p>
-            <Link
-              href="/ground/roads"
-              className="mt-4 inline-block text-sm font-medium text-accent-ground hover:underline"
-            >
-              Explore Johannesburg roads →
-            </Link>
+            <Button variant="ground" className="mt-4" asChild>
+              <Link href="/ground/roads">Open road map</Link>
+            </Button>
           </article>
-          <article className="rounded-xl border border-border bg-surface p-6">
-            <h2 className="text-lg font-semibold">Look up → Learn</h2>
+          <article className="rounded-xl border border-border bg-surface p-6 transition-shadow hover:shadow-md">
+            <div className="flex items-center gap-2 text-accent-sky">
+              <Moon className="h-4 w-4" aria-hidden />
+              <h2 className="text-lg font-semibold text-foreground">
+                Look up → Learn
+              </h2>
+            </div>
             <p className="mt-2 text-muted">
               The Southern Hemisphere sky from your location — planets, Moon,
               constellations, and cultural traditions.
             </p>
-            <Link
-              href="/sky/live"
-              className="mt-4 inline-block text-sm font-medium text-accent-sky hover:underline"
-            >
-              Tonight&apos;s sky →
-            </Link>
+            <Button variant="sky" className="mt-4" asChild>
+              <Link href="/sky">Explore the Sky</Link>
+            </Button>
           </article>
+        </section>
+
+        <section>
+          <div className="flex items-center justify-between gap-4">
+            <h2 className="text-lg font-semibold">Featured roads</h2>
+            <Link
+              href="/search"
+              className="inline-flex items-center gap-1 text-sm text-muted hover:text-foreground"
+            >
+              <Search className="h-3.5 w-3.5" aria-hidden />
+              Search all roads
+            </Link>
+          </div>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-3">
+            {featured.map((road) => (
+              <li key={road.slug}>
+                <Link
+                  href={`/ground/roads/${road.slug}`}
+                  className="block rounded-lg border border-border bg-surface-elevated p-4 transition-colors hover:border-accent-ground"
+                >
+                  <p className="font-medium">{road.currentName}</p>
+                  <p className="mt-1 line-clamp-2 text-xs text-muted">
+                    {road.summary}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section className="rounded-xl border border-border bg-surface-elevated p-6">
@@ -69,11 +92,7 @@ export default function HomePage() {
             Our methodology →
           </Link>
         </section>
-      </main>
-
-      <footer className="border-t border-border px-6 py-6 text-center text-sm text-muted">
-        <p>Milestone 0 — foundation in progress</p>
-      </footer>
-    </div>
+      </div>
+    </SiteShell>
   );
 }

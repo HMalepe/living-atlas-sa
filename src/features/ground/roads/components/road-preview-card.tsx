@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { seedTierLabel } from "@/data/roads/johannesburg-mvp";
+import { X } from "lucide-react";
+import { SeedTierBadge } from "@/components/content/seed-tier-badge";
 import type { SeedDataTier } from "@/domain/enums";
 import { Button } from "@/components/ui/button";
 
@@ -41,10 +42,10 @@ export function RoadPreviewCard({ road, onClose }: RoadPreviewCardProps) {
           <button
             type="button"
             onClick={onClose}
-            className="text-sm text-muted hover:text-foreground"
+            className="rounded-md p-1 text-muted transition-colors hover:bg-surface hover:text-foreground"
             aria-label="Close preview"
           >
-            ✕
+            <X className="h-4 w-4" />
           </button>
         ) : null}
       </div>
@@ -54,7 +55,9 @@ export function RoadPreviewCard({ road, onClose }: RoadPreviewCardProps) {
       ) : null}
 
       {road.seedTier ? (
-        <p className="mt-3 text-xs text-muted">{seedTierLabel(road.seedTier)}</p>
+        <div className="mt-3">
+          <SeedTierBadge tier={road.seedTier} />
+        </div>
       ) : null}
 
       <Button variant="ground" className="mt-4 w-full" asChild>

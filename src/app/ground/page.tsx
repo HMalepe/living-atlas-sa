@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SiteShell } from "@/components/layout/site-shell";
 
 export const metadata: Metadata = {
   title: "Ground",
@@ -7,31 +8,32 @@ export const metadata: Metadata = {
 
 export default function GroundPage() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
+    <SiteShell mainClassName="mx-auto max-w-3xl px-6 py-16">
       <h1 className="text-3xl font-semibold">Ground</h1>
       <p className="mt-4 text-muted">
         Roads, intersections, and infrastructure beneath South African feet.
       </p>
-      <div className="mt-8 flex flex-wrap gap-4">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
         <Link
           href="/ground/roads"
-          className="rounded-lg border border-border bg-surface-elevated px-6 py-4 hover:border-accent-ground"
+          className="rounded-xl border border-border bg-surface-elevated p-6 transition-shadow hover:shadow-md"
         >
           <span className="font-semibold">Johannesburg roads</span>
-          <p className="mt-1 text-sm text-muted">
-            Interactive map with 10 MVP roads
+          <p className="mt-2 text-sm text-muted">
+            Interactive MapLibre map with ten MVP roads, preview cards, and
+            detail pages.
           </p>
         </Link>
         <Link
           href="/search"
-          className="rounded-lg border border-border bg-surface-elevated px-6 py-4 hover:border-accent-ground"
+          className="rounded-xl border border-border bg-surface-elevated p-6 transition-shadow hover:shadow-md"
         >
           <span className="font-semibold">Search</span>
-          <p className="mt-1 text-sm text-muted">
-            Roads, route numbers, former names
+          <p className="mt-2 text-sm text-muted">
+            Find roads by name, route number, or former official name.
           </p>
         </Link>
       </div>
-    </main>
+    </SiteShell>
   );
 }

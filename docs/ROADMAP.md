@@ -10,14 +10,14 @@
 - [x] Architecture and schema plan
 - [x] Initial migration (extensions + enums)
 
-## Milestone 1: Authentication and core database
+## Milestone 1: Authentication and core database ✅
 
-- [ ] Supabase project setup
-- [ ] Profiles, roles, permissions
-- [ ] RLS policies
-- [ ] Shared entity and source system tables
-- [ ] Seed scripts (tiered)
-- [ ] Admin shell (`/admin`)
+- [x] Supabase project structure and migrations
+- [x] Profiles, roles, permissions
+- [x] RLS policies
+- [x] Shared entity and source system tables
+- [x] Seed scripts (roles, entity types, plan placeholders)
+- [x] Admin shell (`/admin`) with auth UI
 
 ## Milestone 2: Ground map
 

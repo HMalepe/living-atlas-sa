@@ -16,6 +16,9 @@ export default function HomePage() {
             <Link href="/about" className="hover:underline">
               About
             </Link>
+            <Link href="/admin" className="hover:underline">
+              Admin
+            </Link>
           </div>
         </nav>
       </header>

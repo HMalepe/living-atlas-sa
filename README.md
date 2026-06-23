@@ -6,7 +6,22 @@ Living Atlas SA is an interactive learning platform that transforms South Africa
 
 ## Status
 
-**Milestone 0 complete** — repository foundation, documentation, tooling, design tokens, and CI.
+**Milestone 1 complete** — auth, core database schema, RLS, admin portal.
+
+## Supabase setup
+
+1. Create a project at [supabase.com](https://supabase.com)
+2. Copy `.env.example` → `.env.local` and add your keys
+3. Install the [Supabase CLI](https://supabase.com/docs/guides/cli) and run:
+
+```bash
+supabase link --project-ref YOUR_PROJECT_REF
+supabase db push
+```
+
+4. Seed runs automatically on `supabase db reset`, or apply `supabase/seed.sql` manually
+
+To grant admin access, assign the `researcher` role (or above) in the `user_roles` table.
 
 ## Quick start
 

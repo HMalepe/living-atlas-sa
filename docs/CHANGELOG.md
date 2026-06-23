@@ -6,6 +6,18 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added — Milestone 1
+
+- Shared core database migration (entities, claims, sources, names, places, timeline, community submissions)
+- Auth and RBAC migration with Row Level Security policies
+- Profile auto-creation trigger on sign-up with default Viewer role
+- Supabase client, server, and middleware integration
+- Sign-in and sign-up pages with Zod-validated server actions
+- Protected `/admin` research dashboard with role gate (Researcher+)
+- Seed data: roles, permissions, entity types, subscription plan placeholders
+- Role and permission unit tests; auth e2e tests
+- RLS policy test scaffold for local Supabase
+
 ### Added — Milestone 0
 
 - Next.js 16 App Router project with TypeScript strict mode

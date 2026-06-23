@@ -8,6 +8,8 @@ import { join } from "node:path";
 
 const MIGRATIONS_DIR = join(process.cwd(), "supabase", "migrations");
 
+const REQUIRED_TABLES = ["entities", "claims", "profiles", "roles"];
+
 async function main() {
   let files;
   try {
@@ -31,10 +33,24 @@ async function main() {
     }
   }
 
-  const firstMigration = files.sort()[0];
-  const content = await readFile(join(MIGRATIONS_DIR, firstMigration), "utf-8");
-  if (!content.includes("postgis")) {
-    errors.push(`First migration ${firstMigration} should enable PostGIS`);
+  const sorted = files.sort();
+  const firstContent = await readFile(
+    join(MIGRATIONS_DIR, sorted[0]),
+    "utf-8",
+  );
+  if (!firstContent.includes("postgis")) {
+    errors.push(`First migration ${sorted[0]} should enable PostGIS`);
+  }
+
+  let allContent = "";
+  for (const file of sorted) {
+    allContent += await readFile(join(MIGRATIONS_DIR, file), "utf-8");
+  }
+
+  for (const table of REQUIRED_TABLES) {
+    if (!allContent.includes(`CREATE TABLE ${table}`)) {
+      errors.push(`Missing CREATE TABLE ${table} in migrations`);
+    }
   }
 
   if (errors.length > 0) {

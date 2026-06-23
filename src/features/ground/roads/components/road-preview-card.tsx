@@ -60,9 +60,16 @@ export function RoadPreviewCard({ road, onClose }: RoadPreviewCardProps) {
         </div>
       ) : null}
 
-      <Button variant="ground" className="mt-4 w-full" asChild>
-        <Link href={`/ground/roads/${road.slug}`}>Open road page</Link>
-      </Button>
+      <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+        <Button variant="ground" className="flex-1" asChild>
+          <Link href={`/ground/roads/${road.slug}`}>Open road page</Link>
+        </Button>
+        <Button variant="outline" className="flex-1" asChild>
+          <Link href={`/ground/roads/compare?a=${road.slug}&b=m1`}>
+            Compare
+          </Link>
+        </Button>
+      </div>
     </article>
   );
 }

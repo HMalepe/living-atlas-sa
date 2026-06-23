@@ -17,3 +17,10 @@ test("site header navigation works", async ({ page }) => {
   await page.getByLabel("Main").getByRole("link", { name: "Roads" }).click();
   await expect(page).toHaveURL(/\/ground\/roads/);
 });
+
+test("intersections nav link works", async ({ page }) => {
+  await page.goto("/");
+  await page.getByLabel("Main").getByRole("link", { name: "Intersections" }).click();
+  await expect(page).toHaveURL(/\/ground\/intersections/);
+  await expect(page.getByRole("heading", { name: "Intersections", level: 1 })).toBeVisible();
+});

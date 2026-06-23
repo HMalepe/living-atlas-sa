@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Map, Moon, Search, Route } from "lucide-react";
+import { GitCompare, Map, Moon, Route, Search } from "lucide-react";
 import { SiteShell } from "@/components/layout/site-shell";
 
 export const metadata: Metadata = {
@@ -12,8 +12,23 @@ const modules = [
   {
     href: "/ground/roads",
     title: "Ground · Roads",
-    description: "Interactive map of ten Johannesburg MVP roads with preview cards and detail pages.",
+    description:
+      "Interactive map with timelines, relationships, sources, and confidence badges.",
     icon: Map,
+    accent: "text-accent-ground",
+  },
+  {
+    href: "/ground/intersections",
+    title: "Ground · Intersections",
+    description: "Major Johannesburg junctions — Gillooly's, Buccleuch, Crown, and more.",
+    icon: Route,
+    accent: "text-accent-ground",
+  },
+  {
+    href: "/ground/roads/compare",
+    title: "Compare roads",
+    description: "Why do these roads run parallel? Side-by-side with sourced explanations.",
+    icon: GitCompare,
     accent: "text-accent-ground",
   },
   {
@@ -33,7 +48,7 @@ const modules = [
   {
     href: "/ground",
     title: "Ground hub",
-    description: "Roads, intersections, and infrastructure beneath South African feet.",
+    description: "Roads, intersections, compare mode, and infrastructure beneath your feet.",
     icon: Route,
     accent: "text-accent-ground",
   },
@@ -44,8 +59,8 @@ export default function ExplorePage() {
     <SiteShell mainClassName="mx-auto max-w-3xl px-6 py-16">
       <h1 className="text-3xl font-semibold">Explore</h1>
       <p className="mt-4 text-muted">
-        Choose a module to begin. The Johannesburg road map is live; the sky
-        module expands in upcoming milestones.
+        Choose a module to begin. Johannesburg roads now include timelines,
+        relationships, intersections, and compare mode.
       </p>
       <ul className="mt-10 grid gap-4 sm:grid-cols-2">
         {modules.map((mod) => (

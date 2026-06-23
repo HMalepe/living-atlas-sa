@@ -91,6 +91,20 @@ export default function HomePage() {
           >
             Our methodology →
           </Link>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Link
+              href="/ground/roads/compare?a=m1&b=m2"
+              className="text-sm text-accent-ground hover:underline"
+            >
+              Compare M1 &amp; M2 →
+            </Link>
+            <Link
+              href="/ground/intersections"
+              className="text-sm text-accent-ground hover:underline"
+            >
+              Explore intersections →
+            </Link>
+          </div>
         </section>
       </div>
     </SiteShell>

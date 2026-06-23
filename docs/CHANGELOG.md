@@ -6,6 +6,23 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added — Milestone 3 polish
+
+- Roads map page uses shared site header with Intersections and Compare shortcuts
+- Ground and Explore hubs surface intersections and compare mode
+- Preview card compare action, footer links, homepage deep links
+- Relationship list shows proper road names from catalogue
+
+### Added — Milestone 3
+
+- Road depth data layer: 20 sources, 20 segments, 15 intersections, 20 relationships, 30 timeline events
+- Confidence badges, claim display, source citations, timeline scrubber UI
+- Enhanced `/ground/roads/[slug]` with anatomy, timeline, relationships, intersections, tiny details
+- `/ground/roads/compare` side-by-side compare mode with parallel corridor explanations
+- `/ground/intersections` index and `/ground/intersections/[slug]` detail pages
+- Migration `20250626000000_road_depth.sql` (road_intersections, road_relationships)
+- Unit and e2e tests for road depth features
+
 ### Added — Polish pass
 
 - Shared site header, footer, and shell with skip link

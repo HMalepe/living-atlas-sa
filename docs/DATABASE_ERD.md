@@ -287,6 +287,7 @@ follows_watercourse, follows_ridge, connects_place, divides_place
 | `20250624000000_shared_core.sql` | M1: entities, claims, sources, names |
 | `20250624000001_auth_roles_rls.sql` | M1: profiles, roles, RLS |
 | `20250625000000_road_domain.sql` | M2: roads, segments, geometries |
+| `20250626000000_road_depth.sql` | M3: road_intersections, road_relationships |
 | `20250626000000_sky_domain.sql` | M4: celestial objects, constellations |
 | `20250627000000_gamification.sql` | M6: journeys, discoveries |
 | `20250628000000_business_placeholders.sql` | M1: orgs, plans, entitlements |

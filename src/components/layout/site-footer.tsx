@@ -17,6 +17,9 @@ export function SiteFooter() {
           <Link href="/ground/roads" className="hover:text-foreground hover:underline">
             Roads
           </Link>
+          <Link href="/ground/intersections" className="hover:text-foreground hover:underline">
+            Intersections
+          </Link>
           <Link href="/search" className="hover:text-foreground hover:underline">
             Search
           </Link>

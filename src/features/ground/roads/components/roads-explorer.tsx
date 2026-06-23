@@ -65,7 +65,7 @@ export function RoadsExplorer({ roads, initialSelectedSlug }: RoadsExplorerProps
   );
 
   return (
-    <div className="flex h-[calc(100vh-4rem)] flex-col lg:flex-row">
+    <div className="flex min-h-0 flex-1 flex-col lg:flex-row">
       <div className="relative min-h-[50vh] flex-1 lg:min-h-0">
         <GroundMap
           selectedSlug={selected?.slug}
@@ -105,12 +105,23 @@ export function RoadsExplorer({ roads, initialSelectedSlug }: RoadsExplorerProps
           </ul>
         </div>
 
-        <Link
-          href="/search"
-          className="text-sm text-accent-ground hover:underline"
-        >
-          Search roads and former names →
-        </Link>
+        <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+          <Link
+            href="/ground/intersections"
+            className="text-accent-ground hover:underline"
+          >
+            Intersections →
+          </Link>
+          <Link
+            href="/ground/roads/compare"
+            className="text-accent-ground hover:underline"
+          >
+            Compare roads →
+          </Link>
+          <Link href="/search" className="text-accent-ground hover:underline">
+            Search →
+          </Link>
+        </div>
       </aside>
     </div>
   );

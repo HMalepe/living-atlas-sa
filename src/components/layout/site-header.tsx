@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { href: "/explore", label: "Explore" },
   { href: "/ground/roads", label: "Roads" },
+  { href: "/ground/intersections", label: "Intersections" },
   { href: "/search", label: "Search" },
   { href: "/about", label: "About" },
 ] as const;

@@ -30,12 +30,12 @@
 
 ## Milestone 3: Road depth
 
-- [ ] Names, timeline, relationships
-- [ ] Intersections
-- [ ] Sources and confidence badges
-- [ ] Compare mode
-- [ ] "Why do these roads run parallel?"
-- [ ] Things You Might Never Notice
+- [x] Names, timeline, relationships
+- [x] Intersections
+- [x] Sources and confidence badges
+- [x] Compare mode
+- [x] "Why do these roads run parallel?"
+- [x] Things You Might Never Notice
 
 ## Milestone 4: Sky foundation
 
